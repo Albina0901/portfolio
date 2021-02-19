@@ -28,11 +28,11 @@ $(document).ready(function() {
 	// Обработчик бургер-меню
     $('.menu__burger').click(function(event) {
         $('.menu__burger,.menu').toggleClass('_active');
-		$('body').toggleClass('lock');
+		$('body').toggleClass('_lock');
     });
     $('a.menu__list-link').click(function(event) {
         $('.menu__burger,.menu').toggleClass('_active');
-		$('body').toggleClass('lock');
+		$('body').toggleClass('_lock');
     });
 
 });

@@ -9,7 +9,7 @@ $md4: 479.98px;
 // Шрифт
 $fontFamily: "Jura";
 // Фон
-$bg: "#FBF9F7";
+$bg: #FBF9F7;
 
 // Обнуляющие стили
 @import "null";
@@ -353,7 +353,7 @@ body {
         position: absolute;
         top: 535px;
         z-index: -2;
-        background: url('../img/circus.svg') no-repeat;
+        background: url('../img/icons/circus.svg') no-repeat;
         @media (max-width: $md2) {
             display: none;
         }
@@ -485,17 +485,65 @@ body {
                     margin-right: 0;
                 }
             }
-            & img {
-                display: block;
-                max-width: 370px;
-                height: auto;
-                @media (max-width: $md3) {
-                    max-width: 100%;
-                }
-            }
             &:hover {
                 transition: all .4s;
             }
+        }
+    }
+    &__img {
+        position: relative;
+        height: 250px;
+        overflow: hidden;
+        transition: .6s;
+        & img {
+            display: block;
+            max-width: 370px;
+            height: auto;
+            @media (max-width: $md3) {
+                max-width: 100%;
+            }
+        }
+        &:hover .work__content {
+            transform: scale(1);
+        }
+        @media (max-width: $md3) {
+            height: auto;
+        }
+    }
+    &__content {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        padding: 20px;
+        line-height: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+        font-size: 16px;
+        transition: .4s;
+        transform: scale(0);
+        background: linear-gradient(0deg, rgba(58, 51, 51, 0.8));
+        &-link {
+            margin-top: 20px;
+            color: #fff;
+            text-transform: uppercase;
+            border: 1px solid #fff;
+            padding: 5px 10px;
+            transition: .4s;
+            &:hover {
+                border: 1px solid #FF6238;
+                transition: .4s;
+            }
+        }
+        &-git {
+            position: absolute;
+            color: #fff;
+            bottom: 10px;
+            font-size: 12px;
+            text-decoration: underline;
         }
     }
     &__name {
@@ -564,14 +612,14 @@ body {
         width: 25px;
         height: 25px;
         margin-right: 8px;
-        background: url('../img/email.svg') no-repeat;
+        background: url('../img/icons/email.svg') no-repeat;
     }
     &__location::before {
         content: " ";
         width: 25px;
         height: 25px;
         margin-right: 8px;
-        background: url('../img/location.svg') no-repeat;
+        background: url('../img/icons/location.svg') no-repeat;
     }
     &__form {
         width: 45%;
