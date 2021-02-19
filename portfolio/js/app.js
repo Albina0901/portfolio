@@ -79,9 +79,16 @@ document.addEventListener('DOMContentLoaded', function () {
 			const input = formReq[index];
 			formRemoveError(input);
  
-			if (input.value === '') {
-				formAddError(input);
-				error++;
+			if (input.classList.contains('_email')) {
+				if (emailTest(input)) {
+					formAddError(input);
+					error++;
+				}
+			}  else {
+				if (input.value === '') {
+					formAddError(input);
+					error++;
+				}
 			}
 		}
 		return error;
@@ -94,61 +101,9 @@ document.addEventListener('DOMContentLoaded', function () {
 		input.parentElement.classList.remove('_error');
 		input.classList.remove('_error');
 	}
-
-//Placeholers
-let inputs = document.querySelectorAll('input[data-value],textarea[data-value]');
-inputs_init(inputs);
-
-function inputs_init(inputs) {
-	if (inputs.length > 0) {
-		for (let index = 0; index < inputs.length; index++) {
-			const input = inputs[index];
-			const input_g_value = input.getAttribute('data-value');
-			input_placeholder_add(input);
-			if (input.value != '' && input.value != input_g_value) {
-				input_focus_add(input);
-			}
-			input.addEventListener('focus', function (e) {
-				if (input.value == input_g_value) {
-					input_focus_add(input);
-					input.value = '';
-				}
-				formRemoveError(input);
-			});
-			input.addEventListener('blur', function (e) {
-				if (input.value == '') {
-					input.value = input_g_value;
-					input_focus_remove(input);
-					if (input.classList.contains('_mask')) {
-						input_clear_mask(input, input_g_value);
-					}
-				}
-			});
-		}
+	//Функция теста email
+	function emailTest(input) {
+		return !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,8})+$/.test(input.value);
 	}
-}
 
-// Добавление placeholder
-function input_placeholder_add(input) {
-	const input_g_value = input.getAttribute('data-value');
-	if (input.value == '' && input_g_value != '') {
-		input.value = input_g_value;
-	}
-}
-// Добавление фокуса
-function input_focus_add(input) {
-	input.classList.add('_focus');
-	input.parentElement.classList.add('_focus');
-}
-// Удаление фокуса
-function input_focus_remove(input) {
-	input.classList.remove('_focus');
-	input.parentElement.classList.remove('_focus');
-}
-// Чистка полей
-function input_clear_mask(input, input_g_value) {
-	input.inputmask.remove();
-	input.value = input_g_value;
-	input_focus_remove(input);
-}
 });

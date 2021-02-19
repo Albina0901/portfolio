@@ -9,7 +9,7 @@
 </head>
 <body>
 	<div class="wrapper"></div>
-		@@include('_header.html')
+		@@include('_header.html');
 		<main class="main">
 			<section class="offer">
 				<div class="container">
@@ -55,9 +55,9 @@
 						[ Навыки ]
 					</h2>
 					<div class="skills__inner">
-						<div class="skills__block">
+						<div class="skills__block skills__block-left">
 							<div class="skills__name">
-								Web-дизайнер
+								Web-дизайн
 							</div>
 							<div class="skills__desc">
 								Photoshop, Illustrator, Sketch, Figma.
@@ -65,7 +65,7 @@
 						</div>
 						<div class="skills__block skills__block-right">
 							<div class="skills__name">
-								Web-разработчик
+								Web-разработка
 							</div>
 							<div class="skills__desc">
 								HTML5, CSS3, Javascript, PHP, Git, Gulp, MySQL, SVG.
@@ -145,12 +145,12 @@
 						</div>
 						<form class="contacts__form" id="form" action="#">
 							<div>
-								<input class="_req" name="name" type="text"  data-value="Ваше Имя">
+								<input class="_req" name="name" type="text"  placeholder="Ваше Имя">
 							</div>
 							<div>
-								<input class="_req" name="email" type="text"  data-value="E-mail">
+								<input class="_req " name="email" type="text"  placeholder="E-mail">
 							</div>
-							<textarea name="mes" rows="10"  data-value="Сообщение"></textarea>
+							<textarea name="mes" rows="10"  placeholder="Сообщение"></textarea>
 							<div>
 								<button class="contacts__btn btn" type="submit">
 									Отправить
@@ -161,7 +161,7 @@
 				</div>
 			</sectuin>
 		</main>
-		@@include('_footer.html')
+		@@include('_footer.html');
 	</div>
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 	<script src="js/app.min.js"></script>
